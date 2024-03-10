@@ -5,13 +5,15 @@ import {categories,featuredFruits} from "../constants/index"
 import { useState } from 'react';
 import FruitCard from '../components/FruitCard';
 import FruitCardSales from '../components/FruitCardSales';
+import { useNavigation } from '@react-navigation/native';
 export default function HomeScreen() {
     const [activeCategorie,setActiveCategorie]=useState("Oranges")
+    const navigation=useNavigation();
   return (
     <SafeAreaView className="flex-1 bg-orange-50">
       <View className="mx-5 flex-row justify-between items-center">
         <Bars3CenterLeftIcon size={30} color="black"/>
-        <TouchableOpacity className="p-2 rounded-xl bg-orange-100">
+        <TouchableOpacity onPress={()=>navigation.navigate('Cart')} className="p-2 rounded-xl bg-orange-100">
           <ShoppingCartIcon size={25} color="orange"/>
         </TouchableOpacity>
       </View>
